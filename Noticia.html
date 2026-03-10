@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Noticias - Notiweb</title>
+  <style>
+    * {margin:0;padding:0;box-sizing:border-box;}
+    body {
+      font-family: "Segoe UI", Arial, sans-serif;
+      color: #fff;
+      background: url('imagenes/fondo1.jpg');
+      background-size: cover;
+    }
+    header {
+      background: rgba(0, 0, 0, 0.7);
+      color: #fff;
+      padding: 20px 60px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    header nav a {
+      color: #fff;
+      margin: 0 15px;
+      text-decoration: none;
+      font-weight: bold;
+    }
+    header nav a:hover {color: #ff5a5f;}
+    .noticias {
+      padding: 60px 20px;
+      text-align: center;
+      background: rgba(0,0,0,0.55);
+      margin: 60px auto;
+      width: 85%;
+      border-radius: 15px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+    }
+    .noticias h2 {font-size: 36px;margin-bottom: 40px;color: #fff;}
+    .noticias-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 30px;
+    }
+    .noticia {
+      background: rgba(255, 255, 255, 0.1);
+      border-radius: 8px;
+      max-width: 320px;
+      text-align: left;
+      overflow: hidden;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+      opacity: 0;
+      transform: translateY(50px);
+      transition: all 0.8s ease;
+    }
+    .noticia.visible {opacity: 1;transform: translateY(0);}
+    .noticia img {width: 100%;height: 200px;object-fit: cover;}
+    .noticia-info {padding: 15px;}
+    .noticia-info h3 {font-size: 20px;color: #ff5a5f;margin-bottom: 10px;}
+    .noticia-info span {font-size: 12px;color: #ccc;display: block;margin-bottom: 10px;}
+    .noticia-info p {font-size: 15px;color: #eee;margin-bottom: 15px;}
+    .noticia-info a {text-decoration: none;color: #ff5a5f;font-weight: bold;}
+    footer {
+      background: rgba(0,0,0,0.8);
+      color: #ccc;
+      text-align: center;
+      padding: 15px;
+      font-size: 14px;
+      margin-top: 40px;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="logo"><h2>Notiweb</h2></div>
+    <nav>
+      <a href="Index.html">Inicio</a>
+      <a href="Blog.html">Blog</a>
+      <a href="Noticia.html">Noticias</a>
+    </nav>
+  </header>
+
+  <section class="noticias">
+    <h2>Últimas Noticias</h2>
+    <div class="noticias-container">
+      <div class="noticia">
+        <img src="imagenes/provecho-acuerdos-comerciales-1.jpg" alt="Noticia 1">
+        <div class="noticia-info">
+          <h3>Nuevo acuerdo internacional impulsa la economía</h3>
+          <span>14 julio 2025</span>
+          <p>El tratado firmado por varias naciones busca fortalecer el comercio y la cooperación tecnológica.</p>
+          <a href="#">Leer más</a>
+        </div>
+      </div>
+      <div class="noticia">
+        <img src="imagenes/inteligenciaartificial.jpg" alt="Noticia 2">
+        <div class="noticia-info">
+          <h3>Avances en inteligencia artificial sorprenden al mundo</h3>
+          <span>12 julio 2025</span>
+          <p>Investigadores presentan una IA capaz de comprender emociones humanas con gran precisión.</p>
+          <a href="#">Leer más</a>
+        </div>
+      </div>
+      <div class="noticia">
+        <img src="imagenes/feriadellibro.jpg" alt="Noticia 3">
+        <div class="noticia-info">
+          <h3>Se inaugura la feria internacional del libro</h3>
+          <span>10 julio 2025</span>
+          <p>El evento reunirá a más de 300 autores y editoriales durante dos semanas.</p>
+          <a href="#">Leer más</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer>© 2025 Notiweb - Todos los derechos reservados.</footer>
+
+  <script>
+    // Efecto al hacer scroll en las tarjetas
+    window.addEventListener('scroll', () => {
+      document.querySelectorAll('.noticia').forEach(card => {
+        const pos = card.getBoundingClientRect().top;
+        if (pos < window.innerHeight - 100) card.classList.add('visible');
+      });
+    });
+  </script>
+</body>
+</html>
