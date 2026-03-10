@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Blog - Notiweb</title>
+  <style>
+    * {margin: 0;padding: 0;box-sizing: border-box;}
+    body {
+      font-family: "Segoe UI", Arial, sans-serif;
+      color: #fff;
+      background: url('imagenes/fondo1.jpg');
+      background-size: cover;
+    }
+    header {
+      background: rgba(0, 0, 0, 0.7);
+      color: #fff;
+      padding: 20px 60px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    header nav a {
+      color: #fff;
+      margin: 0 15px;
+      text-decoration: none;
+      font-weight: bold;
+    }
+    header nav a:hover {color: #ff5a5f;}
+    .blog-section {
+      padding: 60px 20px;
+      text-align: center;
+      background: rgba(0, 0, 0, 0.55);
+      margin: 60px auto;
+      width: 85%;
+      border-radius: 15px;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    }
+    .blog-section h2 {font-size: 36px;margin-bottom: 40px;}
+    .blog-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 30px;
+    }
+    .blog-post {
+      background: rgba(255, 255, 255, 0.1);
+      border-radius: 8px;
+      max-width: 300px;
+      text-align: left;
+      overflow: hidden;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+      opacity: 0;
+      transform: translateY(50px);
+      transition: all 0.8s ease;
+    }
+    .blog-post.visible {opacity: 1;transform: translateY(0);}
+    .blog-post img {width: 100%;height: 180px;object-fit: cover;}
+    .blog-post h3 {font-size: 20px;margin: 15px;color: #ff5a5f;}
+    .blog-post p {font-size: 15px;margin: 0 15px 15px;color: #ddd;}
+    .blog-post a {display: block;margin: 0 15px 15px;text-decoration: none;color: #ff5a5f;font-weight: bold;}
+    footer {
+      background: rgba(0,0,0,0.8);
+      color: #ccc;
+      text-align: center;
+      padding: 15px;
+      font-size: 14px;
+      margin-top: 40px;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="logo"><h2>Notiweb</h2></div>
+    <nav>
+      <a href="Index.html">Inicio</a>
+      <a href="Blog.html">Blog</a>
+      <a href="Noticia.html">Noticias</a>
+    </nav>
+  </header>
+
+  <section class="blog-section">
+    <h2>Nuestro Blog</h2>
+    <div class="blog-container">
+      <div class="blog-post">
+        <img src="imagenes/blog1.png" alt="Blog 1">
+        <h3>Cómo escribir un artículo atractivo</h3>
+        <p>Te damos claves para que tus textos sean leídos de principio a fin.</p>
+        <a href="Noticia.html">Leer más</a>
+      </div>
+      <div class="blog-post">
+        <img src="imagenes/blog2.png" alt="Blog 2">
+        <h3>El impacto de las redes en el periodismo</h3>
+        <p>Explora cómo Facebook y Twitter cambiaron la forma de dar noticias.</p>
+        <a href="Noticia.html">Leer más</a>
+      </div>
+      <div class="blog-post">
+        <img src="imagenes/blog3.png" alt="Blog 3">
+        <h3>¿Por qué leer blogs informativos?</h3>
+        <p>Descubre los beneficios de informarte a través de blogs especializados.</p>
+        <a href="Noticia.html">Leer más</a>
+      </div>
+      <div class="blog-post">
+        <img src="imagenes/blog4.png" alt="Blog 4">
+        <h3>Tendencias en diseño web para medios</h3>
+        <p>Colores, tipografías y estructuras que dominan el mundo digital en 2025.</p>
+        <a href="Noticia.html">Leer más</a>
+      </div>
+    </div>
+  </section>
+
+  <footer>© 2025 Notiweb - Todos los derechos reservados.</footer>
+
+  <script>
+    // Animación de aparición de los blogs
+    window.addEventListener('scroll', () => {
+      document.querySelectorAll('.blog-post').forEach(post => {
+        const pos = post.getBoundingClientRect().top;
+        if (pos < window.innerHeight - 100) post.classList.add('visible');
+      });
+    });
+  </script>
+
+</body>
+</html>
